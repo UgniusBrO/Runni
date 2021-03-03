@@ -1,5 +1,6 @@
 import Home from './screens/Home/index'
 import {Navigation} from 'react-native-navigation'
+import React from 'react'
 
 function registerScreenComponent({name, component:Component}){
     Navigation.registerComponent(name, ()=> (props)=>(

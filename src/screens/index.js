@@ -1,13 +1,13 @@
-//import { Navigation } from "react-native-navigation";
+import { Navigation } from "react-native-navigation";
 import registerScreens from "../registerScreens"
 import unAuthenthicatedScreens from "./config";
 
-// registerScreens()
+registerScreens()
 
-// Navigation.events().registerAppLaunchedListener(handleAppLaunch);
+Navigation.events().registerAppLaunchedListener(handleAppLaunch);
 
-// function handleAppLaunch(){
-//     Navigation.setRoot({
-//         root: unAuthenthicatedScreens
-//     })
-// }
+function handleAppLaunch(){
+    Navigation.setRoot({
+        root: unAuthenthicatedScreens
+    })
+}
