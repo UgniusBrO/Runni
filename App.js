@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -25,6 +24,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+  
   return (
     <>
       <StatusBar barStyle="dark-content" />

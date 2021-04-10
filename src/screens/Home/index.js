@@ -1,20 +1,26 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
+import Header from '../../components/Header'
 
-const Home = () => (
-	
-<View style={styles.container}>
-	<Text>
-		Home
-	</Text>
-</View>
-) 
+const App = ({ componentId }) => {
+    return (
+        <View style ={styles.container}>
+            <Header title="RUNNI" componentId={componentId}></Header>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
-	container:{
-		flex:1,
-		justifyContent:'center',
-		alignItems:'center',
-	}
-})
+    container: {
+        flex: 6,
+        backgroundColor: '#FFFFFF'
+    },
+});
 
-export default Home
+App.options = {
+    topBar: {
+        visible: false,
+    }
+  }
+
+export default App;
