@@ -1,0 +1,75 @@
+const mongoose = require('mongoose')
+
+const workoutlegsTemplate = new mongoose.Schema({
+    fullName:{
+        type:String,
+        required:true
+    },
+    userName:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    userWeight:{
+        type:Number,
+        required:true,
+        min:40,
+        max:200
+    },
+    userHeight:{
+        type:Number,
+        required:true,
+        min:80,
+        max:200
+    },
+    quadsReps:{
+        type:Number,
+    },
+    quadsRepsWeight:{
+        type:Number,
+    },
+    squatReps:{
+        type:Number,
+    },
+    squatRepsWeight:{
+        type:Number,
+    },
+    hamstringReps:{
+        type:Number,
+    },
+    hamstringRepsWeight:{
+        type:Number,
+    },
+    glutesReps:{
+        type:Number,
+    },
+    glutesRepsWeight:{
+        type:Number,
+    },
+    calvesReps:{
+        type:Number,
+    },
+    calvesRepsWeight:{
+        type:Number,
+    },
+    totalTimeSession:{
+        type:Number,
+    },
+    sessionsCompleted:{
+        type:Number,
+    },
+    trainingMode:{
+        type:String,
+        required:true,
+    },
+    gender:{
+        type:String,
+        required:true,
+    },
+    date:{
+        type:Date,
+        default:Date.now
+    }
+})
+
+module.exports = mongoose.model('workoutlegs', workoutlegsTemplate)

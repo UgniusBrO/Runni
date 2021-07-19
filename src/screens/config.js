@@ -3,7 +3,7 @@ const unAuthenthicatedScreens = {
         children: [
             {
                 component: {
-                    name: "SignUp"
+                    name: "LogIn"
                 }
             }
         ]

@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import Button from '../../components/Button'
-import axios from 'axios'
 import { Navigation } from 'react-native-navigation'
+import { connect } from 'react-redux'
 
 class LogIn extends React.Component {
     constructor() {
@@ -19,40 +19,33 @@ class LogIn extends React.Component {
         this.navigateToHome = this.navigateToHome.bind(this)
     }
 
-    changeUsername = (text) =>{
+    changeUsername = (userName) =>{
         this.setState({
-            userName:text
+            userName
         })
+        console.log(userName)
     }
-    changePassword = (text) =>{
+    changePassword = (password) =>{
         this.setState({
-            password:text
+            password
         })
     }
     onSubmit = async (event) =>{
         event.preventDefault()
-
         const registered = {
             userName:this.state.userName,
             password:this.state.password
         }
+        this.setState({ errorse: null }, async() => {
+            try {
+                await this.props.login(registered)
+                console.log('va', registered)
+                this.navigateToHome()
+            } catch (error) {
+                this.setState({ errorse: error?.message })
+            }
+        })
 
-        const response = await axios.post('http://10.0.2.2:4000/app/login', registered)
-        if(response.data.status === 'error')
-        {
-            console.log(response.data.error)
-            this.setState({
-                errorse:'Failed to login, check your password and username'
-            })
-        }
-        if(response.data.status === 'ok')
-        {
-            console.log('succesfully logged in')
-            this.setState({
-                errorse: null
-            })
-            this.navigateToHome()
-        }
     } 
     navigateToSignUp() {
         Navigation.push(this.props.componentId, { component: { name: 'SignUp' } })
@@ -61,7 +54,9 @@ class LogIn extends React.Component {
     navigateToHome() {
         Navigation.push(this.props.componentId, { component: { name: 'Home' } })
     }
+
     render() {
+        console.log('auth', this.props)
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -129,4 +124,17 @@ LogIn.options = {
     }
 }
 
-export default LogIn;
+const mapState = ({ authentication }) => ({
+   token: authentication.token,
+})
+
+const mapDispatch = ({ authentication }) => ({
+    login: authentication.login
+})
+
+const LoginContainer = connect(
+    mapState,
+    mapDispatch
+)(LogIn)
+
+export default LoginContainer;

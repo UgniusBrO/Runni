@@ -1,19 +1,34 @@
 import React from 'react'
 import { Navigation } from 'react-native-navigation'
 import { TouchableHighlight, View, Text, StyleSheet } from 'react-native'
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 const Header = ({ componentId }) => {
     return (
         <View style={styles.header}>
             <View style={styles.circleShapeView1}>
-                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Tracker' } })}>
-                    <View style={styles.rectangle}><View style={styles.rectangle2}></View></View>
-                    
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Home' } })}>
+                    <View><Icon name="map-marker-alt" size={40}></Icon></View>                
+                </TouchableHighlight>
+            </View>
+            <View style={styles.circleShapeView1}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Chest' } })}>
+                    <View><Icon name="cuttlefish" size={40}></Icon></View>                
+                </TouchableHighlight>
+            </View>
+            <View style={styles.circleShapeView1}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Back' } })}>
+                    <View><Icon name="bold" size={40}></Icon></View>                
+                </TouchableHighlight>
+            </View>
+            <View style={styles.circleShapeView1}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Legs' } })}>
+                    <View><Icon name="socks" size={40}></Icon></View>                
                 </TouchableHighlight>
             </View>
             <View style={styles.circleShapeView}>
-                <TouchableHighlight style={styles.oval} underlayColor='#ccc' onPress={() => alert('Padaryti nuejima i profili')}>
-                    <Text style={styles.text}> Fotke </Text>
+                <TouchableHighlight style={styles.oval} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'LogIn' } })}>
+                                    <Icon name="user-circle" size={60}>
+                </Icon>
                 </TouchableHighlight>
             </View>
         </View>
@@ -22,7 +37,7 @@ const Header = ({ componentId }) => {
 
 const styles = StyleSheet.create({
     header: {
-        height: 397,
+        height: 137,
         backgroundColor: '#9291E8',
         flexDirection: 'row',
     },
@@ -35,14 +50,14 @@ const styles = StyleSheet.create({
         width: 61,
         height: 61,
         borderRadius: 61 / 2,
-        backgroundColor: '#f00',
+        backgroundColor: '#9291E8',
         justifyContent: 'center',
         alignItems: 'center'
     },
     circleShapeView: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        left: 215,
+        left: 0,
         top: 40,
         width: 65,
         height: 65,
@@ -50,15 +65,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         margin: 8,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 5, height: 5 },
         shadowOpacity: 1.0,
-        shadowRadius: 2,
+        shadowRadius: 15,
         elevation: 5,
     },
     circleShapeView1: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        left: 38,
+        left: 0,
         top: 44,
         width: 52,
         height: 52,
@@ -66,9 +81,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#9A99CA',
         margin: 8,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 5, height: 5 },
         shadowOpacity: 1.0,
-        shadowRadius: 2,
+        shadowRadius: 15,
         elevation: 5,
     },
     oval1: {

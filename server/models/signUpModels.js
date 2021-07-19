@@ -19,6 +19,21 @@ const SignUpTemplate = new mongoose.Schema({
         type:String,
         required:true
     },
+    isConfirmed:{
+        type:Boolean,
+    },
+    totalDistance:{
+        type:Number,
+    },
+    totalTracks:{
+        type:Number,
+    },
+    totalTimeRun:{
+        type:Number,
+    },
+    totalsessions:{
+        type:Number,
+    },
     date:{
         type:Date,
         default:Date.now

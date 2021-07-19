@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput } from 'react-native'
 import Button from '../../components/Button'
 import axios from 'axios'
 import { Navigation } from 'react-native-navigation'
+import API from '../../utils/API'
 
 class SignUp extends React.Component {
     constructor() {
@@ -13,6 +14,11 @@ class SignUp extends React.Component {
             email:'',
             password:'',
             errorse: '',
+            isConfirmed:false,
+            totalDistance:0,
+            totalTracks:0,
+            totalTimeRun:0,
+            totalsessions:0,
         }
         this.changefullName = this.changefullName.bind(this)
         this.changeUsername = this.changeUsername.bind(this)
@@ -45,16 +51,22 @@ class SignUp extends React.Component {
         })
     }
     onSubmit = async (event) =>{
-        event.preventDefault()
+        // event.preventDefault()
 
         const registered = {
             fullName:this.state.fullName,
             userName:this.state.userName,
             email:this.state.email,
-            password:this.state.password
+            password:this.state.password,
+            isConfirmed:this.state.isConfirmed,
+            totalDistance:this.state.totalDistance,
+            totalTracks:this.state.totalTracks,
+            totalTimeRun:this.state.totalTimeRun,
+            totalsessions:this.state.totalsessions,
         }
 
-        const response = await axios.post('http://10.0.2.2:4000/app/signup', registered)
+        const response = await API.post('/signup', registered)
+        console.log('response', response)
         this.setState({ errors: response.data.errors })
         if(response.data.code === 11000)
         {
@@ -70,6 +82,9 @@ class SignUp extends React.Component {
             })
             this.navigateToHome()
         }
+        console.log(`response.data._message === 'accounts validation failed'`, response.data._message === 'accounts validation failed')
+        console.log(`response.data._message === 'accounts validation failed'`, response.data)
+        console.log(`response.data._message === 'accounts validation failed'`, 'accounts validation failed')
         if(response.data._message === 'accounts validation failed')
         {
             console.log('Please enter in all of the required data')

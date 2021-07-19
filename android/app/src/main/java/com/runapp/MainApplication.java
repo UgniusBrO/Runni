@@ -29,7 +29,8 @@ public class MainApplication extends NavigationApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           //packages.add(new PlayServicesPackage());
-          
+          packages.add(new CustomModulePackage());
+          packages.add(new SendingModulePackage());
           return packages;
         }
 

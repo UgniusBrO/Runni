@@ -4,6 +4,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 	  <uses-sdk android:minSdkVersion="16"
               android:targetSdkVersion="23"/>
               
@@ -13,10 +16,15 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true"
+      >
+
+      
               <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDQV5yCEDHgLS4Tu8DtTKWa4i4xE1gDoDc"/>
+
       <!-- <activity
           android:name=".SplashActivity"
           android:theme="@style/SplashTheme"
@@ -25,7 +33,10 @@
               <action android:name="android.intent.action.MAIN" />
               <category android:name="android.intent.category.LAUNCHER" />
           </intent-filter>
-        </activity> -->
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> -->
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -40,6 +51,9 @@
 
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
