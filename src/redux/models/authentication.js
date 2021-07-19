@@ -58,7 +58,6 @@ export default {
     effects: () => ({
        async login(registered) {
             const response = await API.post('/login', registered)
-            console.log("aaarr")
             if(response.data.status === 'error')
             {
                 return Promise.reject({ message: 'Failed to login, check your password and username' })
@@ -71,7 +70,7 @@ export default {
                 this.setUserdata({ userName: currentuser, profile, userid, workouts, runtime })
                 this.setUserdatachest({ userName: currentuser, profile, userid, workouts, runtime })
                 this.setUserdataback({ userName: currentuser, profile, userid, workouts, runtime })
-                // this.setUserdatalegs({ userName: currentuser, profile, userid, workouts, runtime })
+                this.setUserdatalegs({ userName: currentuser, profile, userid, workouts, runtime })
             }
         },
         async signup(registered) {
@@ -106,7 +105,7 @@ export default {
              }
              if(response.data.status === 'ok')
              {
-                 console.log('Leg plan created', response)
+                 console.log('Back plan created', response)
                  this.setUserdata(response.data.data)
              }
          },
@@ -172,7 +171,6 @@ export default {
             }
         },
         async updateChest(registered) {
-           console.log('updatetrack', registered)
            try{
             const response = await API.put(`/workoutchest/${registered.id}`, registered.registered)
            }
@@ -199,7 +197,6 @@ export default {
             }
         },
         async updateBack(registered) {
-           console.log('updatetrack', registered)
            try{
             const response = await API.put(`/workoutback/${registered.id}`, registered.registered)
            }
@@ -227,14 +224,12 @@ export default {
             }
         },
         async updateLegs(registered) {
-           console.log('updatetrack', registered)
            try{
             const response = await API.put(`/workoutlegs/${registered.id}`, registered.registered)
            }
            catch(error){
-               console.log('nepavyko',)
+               console.log(error)
            }
-            console.log('vavava', response)
             if(response.data.status === 'error')
             {
                 return Promise.reject({ message: 'Failed to update legsworkout' })

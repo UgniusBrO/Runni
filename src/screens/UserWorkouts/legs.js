@@ -11,29 +11,12 @@
    StyleSheet,
    View,
    Text,
-   Button,
-   TouchableOpacity,
-   Platform,
-   PermissionsAndroid,
-   Alert
  } from "react-native";
- import MapView, {
-   Marker,
-   AnimatedRegion,
-   Polyline,
-   PROVIDER_GOOGLE
- } from "react-native-maps";
- import haversine from "haversine";
  import Buttons from '../../components/Button'
- import Geolocation from 'react-native-geolocation-service';
- import { CommandsObserver } from "react-native-navigation/lib/dist/events/CommandsObserver";
- import * as geolib from 'geolib';
- import API from '../../utils/API'
  import { connect } from 'react-redux'
  var polyline = require('@mapbox/polyline');
  import KeepAwake from 'react-native-keep-awake';
  import Header from '../../components/Header'
- import Icon from 'react-native-vector-icons/FontAwesome5';
 
  class Legs extends React.Component {
    constructor(props) {
@@ -181,7 +164,6 @@
        try {
            
            const legs = await this.props.updateLegs(legsinfo)
-           console.log('aaaaa',legs)
        } catch (error) {
            this.setState({ errorse: error?.message })
        }

@@ -1,13 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput,  } from 'react-native'
-import Button from '../../components/Button'
-import axios from 'axios'
 import { Navigation } from 'react-native-navigation'
 import Header from '../../components/Header'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux'
-import API from '../../utils/API'
-import { authentication } from '../../redux/models'
 class Tracks extends React.Component {
     constructor() {
         super()
@@ -77,7 +73,7 @@ class Tracks extends React.Component {
             <View style={styles.container}>
                 <Header title="RUNNI" componentId={this.props.componentId}></Header>
                 <View style={styles.header}>
-                    <Text style={styles.textGlowing}>YOU RAN TOTAL <Text style={styles.textGlowing2}>{console.log('aaa', this.props.aaa), this.props.totalDistance}</Text><Icon name="running" size={50}></Icon> KILOMETERS</Text>
+                    <Text style={styles.textGlowing}>YOU RAN TOTAL <Text style={styles.textGlowing2}>{this.props.totalDistance}</Text><Icon name="running" size={50}></Icon> KILOMETERS</Text>
                     <Text style={styles.textGlowing}>YOU RAN TOTAL <Text style={styles.textGlowing2}>{this.props.totalTime}</Text><Icon name="stopwatch" size={50}></Icon> HOURS</Text>
                     <Text style={styles.textGlowing}>YOU COMPLETED <Text style={styles.textGlowing2}>{this.props.totalWorkouts}</Text><Icon name="dumbbell" size={50}></Icon> WORKOUTS</Text>
                 </View>

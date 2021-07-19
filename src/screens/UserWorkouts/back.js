@@ -11,29 +11,11 @@
    StyleSheet,
    View,
    Text,
-   Button,
-   TouchableOpacity,
-   Platform,
-   PermissionsAndroid,
-   Alert
  } from "react-native";
- import MapView, {
-   Marker,
-   AnimatedRegion,
-   Polyline,
-   PROVIDER_GOOGLE
- } from "react-native-maps";
- import haversine from "haversine";
  import Buttons from '../../components/Button'
- import Geolocation from 'react-native-geolocation-service';
- import { CommandsObserver } from "react-native-navigation/lib/dist/events/CommandsObserver";
- import * as geolib from 'geolib';
- import API from '../../utils/API'
  import { connect } from 'react-redux'
- var polyline = require('@mapbox/polyline');
  import KeepAwake from 'react-native-keep-awake';
  import Header from '../../components/Header'
- import Icon from 'react-native-vector-icons/FontAwesome5';
  import CCC from '../../sendModule';
  
  class Back extends React.Component {
@@ -153,7 +135,7 @@
   }
    SubmitWorkout = async (event) =>{
      console.log('submited workout')
-     console.log('backs', this.props.back[0])
+     console.log('back', this.props.back[0])
      const registered = {
         sessionsCompleted:this.props.back[0].sessionsCompleted + 1,
         cableRowRepsWeight:this.props.back[0].cableRowRepsWeight + (this.state.bigweights * (this.props.back[0].sessionsCompleted / 8)),
@@ -201,7 +183,6 @@
                 
                 const back = await this.props.updateBack(backinfo)
                 this.setState({ count:this.state.count + 1})
-                console.log('aaaaa',back)
             } catch (error) {
                 this.setState({ errorse: error?.message })
             }

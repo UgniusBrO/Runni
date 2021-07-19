@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { View, ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Header from '../../components/Header'
-import API from '../../utils/API'
 import {connect} from 'react-redux'
 import Button from '../../components/Button'
 import { Navigation } from 'react-native-navigation'
@@ -11,7 +10,6 @@ import MapView, {
     Polyline,
     PROVIDER_GOOGLE
   } from "react-native-maps";
-  import { useState } from 'react';
   const LATITUDE_DELTA = 0.009;
 const LONGITUDE_DELTA = 0.009;
 const LATITUDE = 54.921263;
@@ -23,7 +21,6 @@ const App = ({ componentId, getTracks, tracks, getChest, chest, getBack, back, g
         getBack()
         getLegs()
         getTracks()
-        console.log('pirmas', tracks[0])
     },[])
     getMapRegion = () => ({
         latitude: LATITUDE,

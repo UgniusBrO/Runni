@@ -10,10 +10,7 @@ import React from "react";
 import {
   StyleSheet,
   View,
-  Text,
   Button,
-  TouchableOpacity,
-  Platform,
   PermissionsAndroid,
   Alert
 } from "react-native";
@@ -26,10 +23,7 @@ import MapView, {
 import haversine from "haversine";
 import Buttons from '../../components/Button'
 import Geolocation from 'react-native-geolocation-service';
-import Arrows from "./components/Arrows";
-import { CommandsObserver } from "react-native-navigation/lib/dist/events/CommandsObserver";
 import * as geolib from 'geolib';
-import API from '../../utils/API'
 import { connect } from 'react-redux'
 var polyline = require('@mapbox/polyline');
 import KeepAwake from 'react-native-keep-awake';

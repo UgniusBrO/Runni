@@ -1,12 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity} from 'react-native'
 import Button from '../../components/Button'
-import axios from 'axios'
 import { Navigation } from 'react-native-navigation'
 import Header from '../../components/Header'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux'
-import API from '../../utils/API'
 class Workouts extends React.Component {
     constructor() {
         super()

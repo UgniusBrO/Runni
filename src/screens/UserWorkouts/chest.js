@@ -183,7 +183,6 @@
                 
                 const chest = await this.props.updateChest(chestinfo)
                 this.setState({ count:this.state.count + 1})
-                console.log('aaaaa',chest)
             } catch (error) {
                 this.setState({ errorse: error?.message })
             }

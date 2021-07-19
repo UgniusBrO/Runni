@@ -39,7 +39,6 @@ class LogIn extends React.Component {
         this.setState({ errorse: null }, async() => {
             try {
                 await this.props.login(registered)
-                console.log('va', registered)
                 this.navigateToHome()
             } catch (error) {
                 this.setState({ errorse: error?.message })

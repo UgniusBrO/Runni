@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import Button from '../../components/Button'
-import axios from 'axios'
 import { Navigation } from 'react-native-navigation'
 import API from '../../utils/API'
 

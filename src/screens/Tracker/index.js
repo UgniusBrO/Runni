@@ -10,9 +10,6 @@ import React from "react";
 import {
   StyleSheet,
   View,
-  Text,
-  TouchableOpacity,
-  Platform,
   PermissionsAndroid,
   Alert
 } from "react-native";
@@ -25,12 +22,7 @@ import MapView, {
 import haversine from "haversine";
 import Button from '../../components/Button'
 import Geolocation from 'react-native-geolocation-service';
-import Arrows from "./components/Arrows";
-import { CommandsObserver } from "react-native-navigation/lib/dist/events/CommandsObserver";
-import * as geolib from 'geolib';
-import API from '../../utils/API'
 import { connect } from 'react-redux'
-var polyline = require('@mapbox/polyline');
 import KeepAwake from 'react-native-keep-awake';
 // const LATITUDE = 29.95539;
 // const LONGITUDE = 78.07513;
@@ -102,7 +94,7 @@ class Tracker extends React.Component {
   startTracking = () => {
     const { coordinate } = this.state;
     this.setState({ routeCoordinates: [], distanceTravelled: 0 }, () => {
-      console.log('aaa', this.watchID)
+      console.log('watcher', this.watchID)
     })
     console.log('started tracking')
     this.watchID = Geolocation.watchPosition(this.watchPosition,
@@ -175,7 +167,6 @@ class Tracker extends React.Component {
           this.setState({ errorse: error?.message })
       }
   })
-    //console.log('full coordinates', this.state.routeCoordinates)
   };
 
   getMapRegion = () => ({
