@@ -2,6 +2,8 @@
 
 --- Runni is an IoT project which bridges two applications, one for android mobile phone devices and other for Wear os Smart watch devices.
 
+--- To use both applications and get the communication between them, user has to connect his phone to the smart watch with Bluetooth connection. The communication between applications is established by sending messages with MessageClient API.
+
 --- Project was created by one person for bachelors degree final project under academic professor supervision.
 
 --- Projects main purpose is to help people that want to begin or are starting to workout, and they don't know what kind of exercises they have to do and what weights they should use, users just put in their height, weight, gender and previouse experience and they get a workout plan just for them. Project also gives the ability to run segments and to run already created routes to beat their times.
