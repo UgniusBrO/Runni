@@ -1,6 +1,6 @@
 ### ABOUT
 
---- Runni is an IoT project which bridges two applications, one for android mobile phone devices and other for Wear os Smart watch devices.
+--- Runni is an IoT project which bridges two applications, one for android mobile phone devices and other for Wear OS Smart Watch devices.
 
 --- To use both applications and get the communication between them, user has to connect his phone to the smart watch with Bluetooth connection. The communication between applications is established by sending messages with MessageClient API.
 
