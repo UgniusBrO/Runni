@@ -58,6 +58,8 @@
    }
     componentDidMount()
    {
+    this.props.getChest();
+    this.props.getBack();
     this.props.getLegs();
    }
    componentWillUnmount() {
@@ -175,7 +177,6 @@
             try {
                 
                 const legs = await this.props.updateLegs(legsinfo)
-                console.log('aaaaa',legs)
             } catch (error) {
                 this.setState({ errorse: error?.message })
             }
@@ -190,7 +191,7 @@
     {
     return (
       <View style={styles.container}>
-         <Header title="RUNNI" componentId={this.props.componentId} />
+         <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
          <View style={styles.header}>
                 <Text style={styles.textGlowing}>YOUR LEGS PLAN:  {this.props.legs[0].userName}</Text>
                 <Text style={styles.textGlowing}>YOU HAVE COMPLETED :  {this.props.legs[0].sessionsCompleted} SESSIONS SO FAR</Text>
@@ -209,7 +210,7 @@
        {
        return (
          <View style={styles.container}>
-            <Header title="RUNNI" componentId={this.props.componentId} />
+            <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
             <View style={styles.header2}>
                 <Text style={styles.textGlowing2}>CURRENT WORKOUT</Text>
                 <Text style={styles.textGlowing2}>{this.state.currentworkout}</Text>
@@ -225,7 +226,7 @@
     {
     return (
       <View style={styles.container}>
-         <Header title="RUNNI" componentId={this.props.componentId} />
+         <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
          <View style={styles.header2}>
              <Text style={styles.textGlowing2}>CURRENT WORKOUT</Text>
              <Text style={styles.textGlowing2}>RESTING</Text>
@@ -279,14 +280,18 @@ justifyContent: 'space-around',
  const mapState = ({ authentication }) => ({
    userName: authentication.userName,
    legs: authentication.legs,
+   back: authentication.back,
+   chest: authentication.chest,
    totalDistance:authentication.profile,
    totalTime:authentication.runtime,
    totalWorkouts:authentication.workouts,
  })
 
- const mapDispatch = ({ authentication: { login, getLegs, updateLegs } }) => ({
+ const mapDispatch = ({ authentication: { login, getBack, getLegs, getChest, updateLegs } }) => ({
     login,
-    getLegs,
+    getBack, 
+    getLegs, 
+    getChest,
     updateLegs
  })
  

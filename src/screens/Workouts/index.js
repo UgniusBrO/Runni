@@ -223,7 +223,7 @@ class Workouts extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Header title="RUNNI" componentId={this.props.componentId}></Header>
+                <Header title="RUNNI" componentId={this.props.componentId} legs={""} chest={""} back={""}></Header>
                 <View style={styles.header}>
                     <Text style={styles.textGlowing}> <Icon name="dumbbell" size={40}></Icon> BEFORE WE START <Icon name="dumbbell" size={40}></Icon></Text>
                     <Text style={styles.textGlowing}> <Icon name="file-download" size={40}></Icon> FILL OUT THE FORM BELOW <Icon name="file-download" size={40}></Icon></Text>

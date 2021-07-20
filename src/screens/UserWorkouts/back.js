@@ -57,7 +57,9 @@
    }
     componentDidMount()
    {
+    this.props.getChest();
     this.props.getBack();
+    this.props.getLegs();
     console.log("mount", this.props)
    }
    startworkout()
@@ -196,7 +198,7 @@
        {
        return (
          <View style={styles.container}>
-            <Header title="RUNNI" componentId={this.props.componentId} />
+            <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
             <View style={styles.header}>
                 <Text style={styles.textGlowing}>YOUR BACK PLAN:  {this.props.back[0].userName}</Text>
                 <Text style={styles.textGlowing}>YOU HAVE COMPLETED :  {this.props.back[0].sessionsCompleted} SESSIONS SO FAR</Text>
@@ -216,7 +218,7 @@
        {
        return (
          <View style={styles.container}>
-            <Header title="RUNNI" componentId={this.props.componentId} />
+            <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
             <View style={styles.header2}>
                 <Text style={styles.textGlowing2}>CURRENT WORKOUT</Text>
                 <Text style={styles.textGlowing2}>{this.state.currentworkout}</Text>
@@ -232,7 +234,7 @@
     {
     return (
       <View style={styles.container}>
-         <Header title="RUNNI" componentId={this.props.componentId} />
+         <Header title="RUNNI" componentId={this.props.componentId} legs={this.props.legs[0]} chest={this.props.chest[0]} back={this.props.back[0]}/>
          <View style={styles.header2}>
              <Text style={styles.textGlowing2}>CURRENT WORKOUT</Text>
              <Text style={styles.textGlowing2}>RESTING</Text>
@@ -285,15 +287,19 @@ header2: {
 }
  const mapState = ({ authentication }) => ({
    userName: authentication.userName,
+   legs: authentication.legs,
    back: authentication.back,
+   chest: authentication.chest,
    totalDistance:authentication.profile,
    totalTime:authentication.runtime,
    totalWorkouts:authentication.workouts,
  })
 
- const mapDispatch = ({ authentication: { login, getBack, updateBack } }) => ({
+ const mapDispatch = ({ authentication: { login, getBack, getLegs, getChest, updateBack } }) => ({
     login,
     getBack,
+    getLegs,
+    getChest,
     updateBack
  })
  

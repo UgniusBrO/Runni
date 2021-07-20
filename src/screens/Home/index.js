@@ -31,7 +31,7 @@ const App = ({ componentId, getTracks, tracks, getChest, chest, getBack, back, g
     return (
         
         <View style ={styles.container}>
-            <Header title="RUNNI" componentId={componentId} />
+            <Header title="RUNNI" componentId={componentId} legs={legs} chest={chest} back={back}/>
 
             <ScrollView style ={styles.bottom} contentContainerStyle={styles.contentContainer} style={{ }}>
             <View style={styles.buttonContainer}>

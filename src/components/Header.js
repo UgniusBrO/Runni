@@ -2,8 +2,41 @@ import React from 'react'
 import { Navigation } from 'react-native-navigation'
 import { TouchableHighlight, View, Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-const Header = ({ componentId }) => {
-    return (
+import { connect } from 'react-redux'
+
+const Header = ({ componentId, chest, legs, back }) => {
+
+    function navigateToChest() {
+        if(legs?.length > 0 && back?.length > 0  && chest?.length > 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Chest' } })
+        }
+        if(legs?.length == 0 && back?.length == 0  && chest?.length == 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Workouts' } })
+        }
+    }
+    function navigateToLegs() {
+        if(legs?.length > 0 && back?.length > 0  && chest?.length > 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Legs' } })
+        }
+        if(legs?.length == 0 && back?.length == 0  && chest?.length == 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Workouts' } })
+        }
+    }
+    function navigateToBack() {
+        if(legs?.length > 0 && back?.length > 0  && chest?.length > 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Back' } })
+        }
+        if(legs?.length == 0 && back?.length == 0  && chest?.length == 0 )
+        {
+            Navigation.push(componentId, { component: { name: 'Workouts' } })
+        }
+    }
+    return (       
         <View style={styles.header}>
             <View style={styles.circleShapeView1}>
                 <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Home' } })}>
@@ -11,17 +44,17 @@ const Header = ({ componentId }) => {
                 </TouchableHighlight>
             </View>
             <View style={styles.circleShapeView1}>
-                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Chest' } })}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={navigateToChest}>
                     <View><Icon name="cuttlefish" size={40}></Icon></View>                
                 </TouchableHighlight>
             </View>
             <View style={styles.circleShapeView1}>
-                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Back' } })}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={navigateToBack}>
                     <View><Icon name="bold" size={40}></Icon></View>                
                 </TouchableHighlight>
             </View>
             <View style={styles.circleShapeView1}>
-                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={() => Navigation.push(componentId, { component: { name: 'Legs' } })}>
+                <TouchableHighlight style={styles.oval1} underlayColor='#ccc' onPress={navigateToLegs}>
                     <View><Icon name="socks" size={40}></Icon></View>                
                 </TouchableHighlight>
             </View>
@@ -109,5 +142,23 @@ const styles = StyleSheet.create({
         height: 3,
     },
 });
-
-export default Header;
+const mapState = ({ authentication }) => ({
+    token: authentication.token,
+    back: authentication.back,
+    legs: authentication.legs,
+    chest: authentication.chest,
+ })
+ 
+ const mapDispatch = ({ authentication }) => ({
+     login: authentication.login,
+     setToken: authentication.setToken,
+     getBack: authentication.getBack,
+     getLegs: authentication.getLegs,
+     getChest: authentication.getChest
+ })
+ 
+ const HeaderContainer = connect(
+     mapState,
+     mapDispatch
+ )(Header)
+export default HeaderContainer;

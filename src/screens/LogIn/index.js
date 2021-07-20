@@ -47,14 +47,7 @@ class LogIn extends React.Component {
         this.setState({ errorse: null }, async() => {
             try {
                 await this.props.login(registered)
-                // if(this.props.legs?.length == 0 && this.props.back?.length == 0  && this.props.chest?.length == 0 )
-                // {
-                //     this.navigateToWorkouts()
-                // }
-                // else
-                // {
                     this.navigateToHome()
-                // }
             } catch (error) {
                 this.setState({ errorse: error?.message })
             }
@@ -77,7 +70,6 @@ class LogIn extends React.Component {
         Navigation.push(this.props.componentId, { component: { name: 'Workouts' } })
     }
     render() {
-        console.log('auth', Object.keys(this.props.legs).length)
         if(this.props.token?.length > 0)
         {
         return (

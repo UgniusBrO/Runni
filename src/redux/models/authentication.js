@@ -213,7 +213,7 @@ export default {
         },
         async getLegs(_, { authentication: { userName }}) {
             const response = await API.get('/workoutlegs', { params: { userName } })
-            console.log('pararam', response)
+            console.log('getlegs', response)
             if(response.data.status === 'error')
             {
                 return Promise.reject({ message: 'Failed to get legsworkout' })
