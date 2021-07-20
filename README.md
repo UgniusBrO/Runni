@@ -43,7 +43,7 @@ The mobile application is only available for Android Devices
 
 ![download](https://user-images.githubusercontent.com/25903459/126318792-25c7da61-25e5-413e-98f6-23eb3bb71d03.png)
 
-Smart Watch application uses Java code, which is bridge to mobile aplication Java and Javascript code.
+Smart Watch application uses Java code, which is bridged to mobile aplication Java and Javascript code.
 
 ![java](https://user-images.githubusercontent.com/25903459/126332253-3c9d3dd5-4958-407d-aa79-f0d69d9314f7.png)
 
