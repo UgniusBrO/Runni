@@ -1,5 +1,36 @@
 ### ABOUT
 
+--- Runni is an IoT project which bridges two applications, one for android mobile phone devices and other for Wear os Smart watch devices.
+
+--- Project was created by one person for bachelors degree final project under academic professor supervision.
+
+--- Projects main purpose is to help people that want to begin or are starting to workout, and they don't know what kind of exercises they have to do and what weights they should use, users just put in their height, weight, gender and previouse experience and they get a workout plan just for them. Project also gives the ability to run segments and to run already created routes to beat their times.
+
+### CREDITS
+-------------------------
+--- Application coder ---
+      UGNIUS MOCKUS - ugnius.mockus@gmail.com
+-------------------------
+----- Video creator -----
+      UGNIUS MOCKUS - ugnius.mockus@gmail.com
+-------------------------
+----- Project supervisor -----
+      Filippo Sanfilippo, IEEE Senior Member
+
+Associate Professor
+University of Agder (UiA)
+Faculty of Engineering and Science
+Department of Engineering Sciences
+
+Professor II
+Oslo Metropolitan University (OsloMet)
+Faculty of Technology, Art and Design
+Department of Mechanical, Electronic and Chemical Engineering
+
+E-mail: Filippo.Sanfilippo@oslomet.no
+        Filippo.Sanfilippo@uia.no
+Website: filipposanfilippo.inspitivity.com
+-------------------------
 ### TECHNICAL INFORMATION
 
 Mobile phone application is created using MERN stack
@@ -45,6 +76,10 @@ A. Yes, the mobile application uses Local storage and not AsyncStorage.
 Q.『Is it possible to see other people route segments?』
 
 A. As of now, users can only see the segments that they have created.
+------------------------------------------------------------------------------------
+Q.『Can I find the apps in stores?』
+
+A. As of now the project is not available for download from GooglePlay or Apple stores.
 ------------------------------------------------------------------------------------
 Q.『I have different questions how can I contact you?』
 
