@@ -65,6 +65,14 @@ https://user-images.githubusercontent.com/25903459/126310493-a2995a22-0527-4382-
 
 ### FAQ
 ------------------------------------------------------------------------------------
+Q.『How does Smart Watch application get data from phone?』
+
+A. The code is bridge and the project uses MessageClient API for sending messages between the applications.
+------------------------------------------------------------------------------------
+Q.『Does the Smart Watch application send messages to the mobile phone application?』
+
+A. No it is a one way message sending from Phone to Smart watch, the Smarth Watch only receives messages and the Phone only sends them.
+------------------------------------------------------------------------------------
 Q.『Can you lock the screen of the phone during workouts or while running?』
 
 A. No, you can not lock the screen of the phone during workouts and running routes as it doesn't use background location tracking for running and background listeners for smart watch application, the mobile application uses KeepAwake for this and keeps your screen unlocked while you are working out. However, if you don't connect your smart watch to your phone application or lock your smart watch, the phone application will still be working.
@@ -80,6 +88,10 @@ A. As of now, users can only see the segments that they have created.
 Q.『Can I find the apps in stores?』
 
 A. As of now the project is not available for download from GooglePlay or Apple stores.
+------------------------------------------------------------------------------------
+Q.『Can I use this project for my projects?』
+
+A. The project can't be taken and reused without creators permission. However as I found out during the development stages that there is shortage of information on how to connect mobile application with wearable application, and most of the older information is deprecated, I am making this public so you can get a view on how the communication between both devices should be established.
 ------------------------------------------------------------------------------------
 Q.『I have different questions how can I contact you?』
 
