@@ -17,7 +17,7 @@
  var polyline = require('@mapbox/polyline');
  import KeepAwake from 'react-native-keep-awake';
  import Header from '../../components/Header'
-
+ import CCC from '../../sendModule';
  class Legs extends React.Component {
    constructor(props) {
      super(props);
@@ -89,7 +89,7 @@
         this.setState({workoutnr:this.state.workoutnr + 1, sets:4})
        if(this.state.workoutnr == 1)
        {
-        this.setState({currentworkout:'SQUATS', currentweight:squatRepsWeight, currentreps:this.props.legs[0].squatReps})
+        this.setState({currentworkout:'SQUATS', currentweight:this.props.legs[0].squatRepsWeight, currentreps:this.props.legs[0].squatReps})
        }
        if(this.state.workoutnr == 2)
        {

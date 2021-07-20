@@ -47,8 +47,7 @@
        isresting:false,
        currentworkout:'PULLUPS',
        currentweight:0,
-       currentreps:0,
-    //    currentreps:this.props.back[0].pullupReps,
+       currentreps:this.props.back[0].pullupReps,
        workoutnr:0,
        sets:4
      };
@@ -87,7 +86,7 @@
         this.setState({workoutnr:this.state.workoutnr + 1, sets:4})
        if(this.state.workoutnr == 1)
        {
-        this.setState({currentworkout:'CABLE ROW', currentweight:cableRowRepsWeight, currentreps:this.props.back[0].cableRowReps})
+        this.setState({currentworkout:'CABLE ROW', currentweight:this.props.back[0].cableRowRepsWeight, currentreps:this.props.back[0].cableRowReps})
        }
        if(this.state.workoutnr == 2)
        {
