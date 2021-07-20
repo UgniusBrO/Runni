@@ -67,7 +67,7 @@ https://user-images.githubusercontent.com/25903459/126310493-a2995a22-0527-4382-
 ------------------------------------------------------------------------------------
 Q.『How does Smart Watch application get data from phone?』
 
-A. The code is bridge and the project uses MessageClient API for sending messages between the applications.
+A. The code is bridged and the project uses MessageClient API for sending messages between the applications.
 ------------------------------------------------------------------------------------
 Q.『Does the Smart Watch application send messages to the mobile phone application?』
 
