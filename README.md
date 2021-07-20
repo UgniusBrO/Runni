@@ -10,7 +10,7 @@
 
 ### CREDITS
 -------------------------
---- Application coder ---
+----- Project coder -----
       UGNIUS MOCKUS - ugnius.mockus@gmail.com
 -------------------------
 ----- Video creator -----
