@@ -16,7 +16,7 @@
 -------------------------
 ----- Project supervisor -----
       Filippo Sanfilippo, IEEE Senior Member
-
+-------------------------
 Associate Professor
 University of Agder (UiA)
 Faculty of Engineering and Science
