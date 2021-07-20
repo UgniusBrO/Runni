@@ -174,7 +174,6 @@ router.post('/tracks', async (request, response) => {
     })
 })
 router.put('/tracks/:id', async (request, response) => {
-    console.log('track id', request.params.id)
     let track = await trackTemplateCopy.findOneAndUpdate( { _id: request.params.id },
         {userSpeed:request.body.userSpeed, runner:request.body.runner}, {new:true})
     return response.json({status: 'ok', data: track })
@@ -201,7 +200,6 @@ router.get('/workoutchest', async (request, response) => {
 
 })
 router.put('/workoutlegs/:id', async (request, response) => {
-    console.log('request.params.id: ' + request.params.id );
     let legs = await workoutlegsTemplateCopy.findOneAndUpdate( { _id: request.params.id },
         {quadsRepsWeight:request.body.quadsRepsWeight,
             squatRepsWeight:request.body.squatRepsWeight,
@@ -209,7 +207,6 @@ router.put('/workoutlegs/:id', async (request, response) => {
             glutesRepsWeight:request.body.glutesRepsWeight,
             calvesRepsWeight:request.body.calvesRepsWeight,
             sessionsCompleted:request.body.sessionsCompleted}, {new:true})
-    console.log('responsas', legs)
     return response.json({status: 'ok', data: legs })
 })
 router.get('/workoutlegs', async (request, response) => {
@@ -218,7 +215,6 @@ router.get('/workoutlegs', async (request, response) => {
 
 })
 router.put('/workoutback/:id', async (request, response) => {
-    console.log('request.params.id: ' + request.params.id );
     let back = await workoutbackTemplateCopy.findOneAndUpdate( { _id: request.params.id },
         {pullupReps:request.body.pullupReps, 
             cableRowRepsWeight:request.body.cableRowRepsWeight,

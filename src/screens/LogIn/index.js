@@ -17,8 +17,16 @@ class LogIn extends React.Component {
         this.onSubmit = this.onSubmit.bind(this)
         this.navigateToSignUp = this.navigateToSignUp.bind(this)
         this.navigateToHome = this.navigateToHome.bind(this)
+        this.navigateToLogIn = this.navigateToLogIn.bind(this)
+        this.navigateToWorkouts = this.navigateToWorkouts.bind(this)
     }
-
+    componentDidMount()
+    {
+     this.props.getBack();
+     this.props.getChest();
+     this.props.getLegs();
+     console.log("mount", this.props)
+    }
     changeUsername = (userName) =>{
         this.setState({
             userName
@@ -39,7 +47,14 @@ class LogIn extends React.Component {
         this.setState({ errorse: null }, async() => {
             try {
                 await this.props.login(registered)
-                this.navigateToHome()
+                // if(this.props.legs?.length == 0 && this.props.back?.length == 0  && this.props.chest?.length == 0 )
+                // {
+                //     this.navigateToWorkouts()
+                // }
+                // else
+                // {
+                    this.navigateToHome()
+                // }
             } catch (error) {
                 this.setState({ errorse: error?.message })
             }
@@ -50,12 +65,35 @@ class LogIn extends React.Component {
         Navigation.push(this.props.componentId, { component: { name: 'SignUp' } })
     }
 
+    navigateToLogIn() {
+        this.props.setToken("")
+        Navigation.push(this.props.componentId, { component: { name: 'LogIn' } })
+    }
+
     navigateToHome() {
         Navigation.push(this.props.componentId, { component: { name: 'Home' } })
     }
-
+    navigateToWorkouts() {
+        Navigation.push(this.props.componentId, { component: { name: 'Workouts' } })
+    }
     render() {
-        console.log('auth', this.props)
+        console.log('auth', Object.keys(this.props.legs).length)
+        if(this.props.token?.length > 0)
+        {
+        return (
+            <View style={styles.container}>
+                <View style={styles.header}>
+                <Button style={styles.text} title={'HomeScreen'} onPress={this.navigateToHome}>
+                </Button>
+                <Button style={styles.text} title={'Log Out'} onPress={this.navigateToLogIn}>
+                </Button>
+                <View style ={styles.middleshape}></View>
+                </View>
+            </View>
+        )
+        }
+        if(this.props.token?.length == 0)
+        {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -77,6 +115,7 @@ class LogIn extends React.Component {
                 </View>
             </View>
         )
+        }
     }
 }
 
@@ -89,7 +128,9 @@ const styles = StyleSheet.create({
     header: {
         height: 397,
         backgroundColor: '#9291E8',
-        alignItems:'center'
+        alignItems:'center',
+        alignContent:'center',
+        justifyContent:"space-around"
     },
     middleshape:{
         position: 'absolute',
@@ -114,6 +155,7 @@ const styles = StyleSheet.create({
         color: 'red',
         fontSize: 20,
         textAlign: 'center'
+        
     },
 });
 
@@ -125,10 +167,17 @@ LogIn.options = {
 
 const mapState = ({ authentication }) => ({
    token: authentication.token,
+   back: authentication.back,
+   legs: authentication.legs,
+   chest: authentication.chest,
 })
 
 const mapDispatch = ({ authentication }) => ({
-    login: authentication.login
+    login: authentication.login,
+    setToken: authentication.setToken,
+    getBack: authentication.getBack,
+    getLegs: authentication.getLegs,
+    getChest: authentication.getChest
 })
 
 const LoginContainer = connect(
